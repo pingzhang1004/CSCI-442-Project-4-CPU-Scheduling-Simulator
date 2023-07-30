@@ -1,0 +1,36 @@
+mlfq_algorithm.hpp:
+
+	MLFQQueue mlfq_queue[10]
+
+
+mlfq_algorithm.cpp:
+
+	method get_next_thread():
+
+		next_decision = new SchedulingDecision
+		for i in range 0-9:
+			if mlfq_queue[i] is not empty:
+				next_decision.thread = mlfq_queue[i].top
+				mlfq_queue[i].pop
+				next_decision.explanation = "Some explanation"
+				this->time_slice = pow(2, i)
+				next_decision.thread.queue_total_time += next_decision.thread.get_next_burst(CPU).length
+				return next_decision
+
+		next_decision.explanation = "No threads available"
+		return next_decision
+
+
+	method add_to_ready_queue(thread):	
+
+		if thread.queue_total_time >= pow(2, queue_num) && thread.queue_num != 9:
+			thread.queue_num += 1
+			thread.queue_total_time = 0
+
+		mlfq_queue[thread.queue_num].push(thread.priority, thread)
+			
+
+thread.hpp:
+
+	queue_total_time = 0
+	queue_num = 0
