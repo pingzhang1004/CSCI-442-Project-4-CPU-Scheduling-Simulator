@@ -1,5 +1,5 @@
 # CSCI-442-Project-4-CPU-Scheduling-Simulator
-##### using C
+##### using C++
 
 ### Implemented FCFS, RR, SPN, PRIORITY, and MLFQ CPU scheduling algorithms to simulate a variety of possibly multi-threaded processes and calculated performance criteria from the simulations.
 #### For instance: prompt> ./cpu-sim -a FCFS tests/input/input-1
